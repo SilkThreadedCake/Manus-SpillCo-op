@@ -636,9 +636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b12f9a2a22cd14aaaf27d6f7238f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardWalkingSpeed: 1
-  backwardWalkingSpeed: 0
-  sideWalkingSpeed: 0
+  forwardWalkingSpeed: 2
+  backwardWalkingSpeed: 2
+  sideWalkingSpeed: 2
   horizontal: Horizontal
   vertical: Vertical
   xOffset: 0
