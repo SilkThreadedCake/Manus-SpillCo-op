@@ -32,13 +32,21 @@ public class Movement : MonoBehaviour
         horInput = Input.GetAxis(horizontal); //Grabs the value of Horizontal input
         verInput = Input.GetAxis(vertical); //Grabs the value of Vertical input
 
+        float rightMove = verInput * backwardWalkingSpeed + yOffset * -1;
+        float leftMove = verInput * forwardWalkingSpeed + yOffset;//Add time.deltatime
+        float forwardMove = horInput * sideWalkingSpeed + xOffset;
+        float backwardsMove = horInput * sideWalkingSpeed + xOffset * -1;
+
+        float cameraRotation = Camera.main.transform.rotation.eulerAngles.y; //Creates camerarotation refrence for y
+
+
         if (Input.GetAxis(horizontal) > 0 || (Input.GetAxis(vertical) > 0)) //Is the movement forward or to the right
         {
-            RigidB.velocity = new Vector3(horInput * sideWalkingSpeed + xOffset, 0, verInput * forwardWalkingSpeed + yOffset); //Make movement with a potential offset to make it angled
+            RigidB.velocity = Quaternion.Euler(0, cameraRotation, 0) * new Vector3(forwardMove, 0, leftMove); //Make movement with a potential offset to make it angled
         }
         else if (Input.GetAxis(horizontal) < 0 || (Input.GetAxis(vertical) < 0)) //Is the movement backwards or to the left
         {
-            RigidB.velocity = new Vector3(horInput * sideWalkingSpeed + xOffset * -1, 0, verInput * backwardWalkingSpeed + yOffset * -1); //Make movement with a potnetial offset oposite to the previous one to make it angled
+            RigidB.velocity = Quaternion.Euler(0, cameraRotation, 0) * new Vector3(backwardsMove, 0, rightMove); //Make movement with a potnetial offset oposite to the previous one to make it angled
         }
         else { RigidB.velocity = new Vector3(0, 0, 0); } //If not, make sure the movement resets.
     }

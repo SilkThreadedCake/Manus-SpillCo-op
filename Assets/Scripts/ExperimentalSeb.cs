@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExperimentalSeb : MonoBehaviour
@@ -22,7 +20,7 @@ public class ExperimentalSeb : MonoBehaviour
     [Range(0,5)]public float horCameraSpeed;
     [Range(0,5)]public float verCameraSpeed;
 
-    private float yaw = 0f;
+    [Range(-1,1)]private float yaw = 0f;
     private float pitch = 0f;
 
     private Rigidbody RigidB;
@@ -30,18 +28,20 @@ public class ExperimentalSeb : MonoBehaviour
     private void Start()
     {
         RigidB = GetComponent<Rigidbody>();
-        CameraControlls();
+        Cursor.lockState = CursorLockMode.Locked; //This works.
     }
 
     private void Update()
     {
         Walking();
         CameraControlls();//No use yet
-    }
 
+        if (Input.GetKey(KeyCode.Escape)) { Cursor.lockState = CursorLockMode.None; } //Temp release for mouse.MUST HAVE IN PAUSE OR SIMILAIR
+    }
 
     private void Walking()
     {
+
         horInput = Input.GetAxis(horizontal); //Grabs the value of Horizontal
         verInput = Input.GetAxis(vertical); //Grabs the value of Vertical
 
@@ -55,6 +55,8 @@ public class ExperimentalSeb : MonoBehaviour
         }
         else { RigidB.velocity = new Vector3(horInput * walkingSpeed, 0, verInput * walkingSpeed); }
         
+
+
     }
 
     private void CameraControlls() //Currently moves the camera.. Kinda, by rotating the player completely, does not rotate movement direction.REMAKE
@@ -66,3 +68,6 @@ public class ExperimentalSeb : MonoBehaviour
     }
 
 }
+
+
+//This place is a mess. 
