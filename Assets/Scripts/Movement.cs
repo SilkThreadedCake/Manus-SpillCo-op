@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Walking();
+        InducingDementia();
     }
 
     private void Walking()
@@ -49,5 +50,23 @@ public class Movement : MonoBehaviour
             RigidB.velocity = Quaternion.Euler(0, cameraRotation, 0) * new Vector3(backwardsMove, 0, rightMove); //Make movement with a potnetial offset oposite to the previous one to make it angled
         }
         else { RigidB.velocity = new Vector3(0, 0, 0); } //If not, make sure the movement resets.
+    }
+
+
+    void InducingDementia() //Just for prototyping testing the demendtia walk mode.
+    {
+        if (Input.GetKey(KeyCode.P))
+        {
+            xOffset = 0.2f;
+        }
+        else if (Input.GetKey(KeyCode.L))
+        {
+            yOffset = 0.2f;
+        }
+        else if (Input.GetKey(KeyCode.O))
+        {
+            xOffset = 0;
+            yOffset = 0;
+        }
     }
 }
