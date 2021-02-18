@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
     [Tooltip("How much forward/Backward will tilt to a side")] [Range(-1, 1)] public float xOffset;
     [Tooltip("How much left/side will tilt forward/backwars")] [Range(-1, 1)] public float yOffset;
 
+    public static bool reading = false; //Simple solution, for preventing movement during reading.
+
     private Rigidbody RigidB;
 
     private void Start()
@@ -24,7 +26,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        Walking();
+        if (!reading) { Walking(); }
         InducingDementia();
     }
 
