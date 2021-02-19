@@ -20,6 +20,10 @@ public class CameraMovement : MonoBehaviour
     private void Update()
     {
         if (!Movement.reading) { cameraRotation(); } //Uses the same as movement does to prevent movement during reading phase.
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            QuitGame();
+        }
     }
 
 
@@ -35,5 +39,18 @@ public class CameraMovement : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
 
         if (Input.GetKey(KeyCode.Escape)) { Cursor.lockState = CursorLockMode.None; }//Release of the cursor
+    }
+
+    private void QuitGame() //Added simply as a end game.
+    {
+#if UNITY_EDITOR
+        if (UnityEditor.EditorApplication.isPlaying == true)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+#else
+        Application.Quit();
+#endif
     }
 }

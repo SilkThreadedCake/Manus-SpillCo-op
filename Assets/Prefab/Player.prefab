@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1611924292531502623}
   - component: {fileID: 1611924292531502620}
   - component: {fileID: 1611924292531502619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 1611924293008124082}
   - component: {fileID: 1611924293008124083}
   - component: {fileID: 1611924293008124084}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rose Eyes
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1611924293626640450}
   - component: {fileID: 1611924293626640451}
   - component: {fileID: 1611924293626640448}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rose 2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
