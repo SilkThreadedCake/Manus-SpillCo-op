@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        cameraRotation();
+        if (!Movement.reading) { cameraRotation(); } //Uses the same as movement does to prevent movement during reading phase.
     }
 
 
