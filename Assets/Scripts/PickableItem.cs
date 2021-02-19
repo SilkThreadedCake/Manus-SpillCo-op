@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PickableItem : MonoBehaviour
 {
     private Rigidbody rb;
@@ -11,11 +12,5 @@ public class PickableItem : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

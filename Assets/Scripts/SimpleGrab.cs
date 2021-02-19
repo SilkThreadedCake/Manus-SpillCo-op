@@ -35,7 +35,7 @@ public class SimpleGrab : MonoBehaviour
                 RaycastHit hit;
 
                 // Shoot ray to find object to pick
-                if (Physics.Raycast(ray, out hit, 1.5f))
+                if (Physics.Raycast(ray, out hit, 2.0f))
                 {
                     // Check if object is pickable
                     var pickable = hit.transform.GetComponent<PickableItem>();
